@@ -18,7 +18,16 @@ The data on top 100 U.S Youtubers contrywise is available on [Kaggle](https://ww
 
 ## Tools
 1. [SQL](https://aka.ms/ssmsfullsetup) - For data manipulation and cleaning
-2. [Power BI](https://aka.ms/pbidesktopstore) - Fpr creating dashboards
+2. [Power BI](https://aka.ms/pbidesktopstore) - For creating dashboards
 
 ## Data Anlysis
+### Data Quality Checks
+We'll utilize SQL for this by;
+- Checking row and column counts check
+- Assessing the data types
+- Checking for any duplicates
+
+```sql
+SELECT from TABLE1
+```
 
