@@ -1,11 +1,11 @@
 # Analysis of Top 100 Youtubers
 
 ## Table of Contents
-- Overview[#overview]
-- Objectives[#objectives]
-- Statement of Problem[#statement-of-problem]
-- Data Source[#data-source]
-- Tools[#Tools
+- [Overview](#overview)
+- [Objectives](#objectives)
+- [Statement of Problem](#statement-of-problem)
+- [Data Source](#data-source)
+- [Tools](#Tools)
 - 
 
 ## Overview
