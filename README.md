@@ -20,14 +20,19 @@ The data on top 100 U.S Youtubers contrywise is available on [Kaggle](https://ww
 1. [SQL](https://aka.ms/ssmsfullsetup) - For data manipulation and cleaning
 2. [Power BI](https://aka.ms/pbidesktopstore) - For creating dashboards
 
-## Data Anlysis
+## Data Analysis
 ### Data Quality Checks
 We'll utilize SQL for this by;
 - Checking row and column counts check
 - Assessing the data types
 - Checking for any duplicates
 
+First, create a new database for your excel file. You can open a new query and use the command 
 ```sql
-SELECT from TABLE1
+CREATE DATABASE (your_database_name)
+
+--- use created database:
+USE (your_database_name);
 ```
+
 
