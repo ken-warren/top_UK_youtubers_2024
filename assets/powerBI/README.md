@@ -1,3 +1,3 @@
 # PowerBI Dashboard
 
-[!image](assets/images/Top UK youtubers dashboard.jpg)
+[!Top UK youtubers dashboard](assets/images/Top UK youtubers dashboard.jpg)
