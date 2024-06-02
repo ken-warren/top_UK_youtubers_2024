@@ -22,11 +22,11 @@ In this project, I’m studying the top 100 UK YouTubers to assist a marketer in
 
 ## Objectives
 
-1. Data Exploration and Understanding: Collect data on the top 100 UK YouTubers using Excel and gain insights into their performance.
-2. Data Cleaning and Transformation: Clean the dataset by handling missing values, duplicates, and perform necessary transformations for analysis.
-3. Comparison of SQL and Excel: Analyze subscriber metrics using both SQL and Excel. Compare results in terms of difference.
-4. Power BI Report Generation:Transfer cleaned data to Power BI. Create interactive visualizations for insights.
-5. Recommendations for Campaign Investment: Recommend high-potential YouTubers based on growth trends, engagement rates, and alignment with campaign goals.
+1. To explore data on the top 100 UK YouTubers using Excel and gain insights into their performance.
+2. To clean the dataset by handling missing values, duplicates, and perform necessary transformations for analysis.
+3. To analyze subscriber metrics using both SQL and Excel. Compare results in terms of difference.
+4. To transfer cleaned data to Power BI and create interactive visualizations for insights.
+5. To recommend high-potential YouTubers based on engagement rates and potential returns.
 
 
 ## Statement of Problem
