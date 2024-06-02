@@ -77,6 +77,7 @@ The dataset should appear as shown below.
 ---
 
 Now, let's carry on with the data cleaning;
+
 1. Removing unnecessary columns/select needed columns only
 ```sql
 SELECT 
@@ -95,6 +96,7 @@ SELECT
 FROM
   top_uk_youtubers_2024
 ```
+
 3. Rename the column names and create a new view
 ```sql
 CREATE VIEW view_uk_youtubers_2024 AS
@@ -121,7 +123,6 @@ The output should show this.
 
 ![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/loaded_view_cleaned.png)
 
----
 
 ## Data Quality Checks
 
@@ -131,6 +132,7 @@ This will include;
 - Checking for any duplicates
 
 1. Row and column counts check
+
 ```sql
 SELECT
 	COUNT(*) as no_of_rows 
@@ -146,7 +148,8 @@ WHERE
 	TABLE_NAME = 'view_uk_youtubers_2024'
 ```
 
-2. Assessing the Data Types
+2. Assessing the Data Type
+
 ```sql
 SELECT
 	COLUMN_NAME,
@@ -172,7 +175,7 @@ HAVING
 	COUNT(*) > 1
 ```
 
----
+
 
 # Power BI Report
 
@@ -203,6 +206,7 @@ VAR TotalSubscribers = DIVIDE(sumOfTotalSubscribers, 1000000)
 
 RETURN(TotalSubscribers)
 ```
+
 2. Total videos
 ```dax
 Total Videos = 
@@ -210,6 +214,7 @@ VAR TotalVideos = SUM(view_uk_youtubers_2024[total_videos])
 
 RETURN(TotalVideos)
 ```
+
 3. Total views
 ```dax
 Total Views (B) = 
@@ -219,6 +224,7 @@ VAR TotalViews = DIVIDE(sumOfTotalViews,billion)
 
 RETURN(TotalViews)
 ```
+
 4. Average views per video
 ```dax
 Avg Views per Video (M) = 
@@ -229,6 +235,7 @@ VAR finalAvgOfViewsPerVideo = DIVIDE(avgOfViewsPerVideo, 1000000, BLANK())
 
 RETURN(finalAvgOfViewsPerVideo)
 ```
+
 5. Views per subscribers
 ```dax
 Views per Subscriber = 
@@ -243,14 +250,8 @@ RETURN(ViewsPerSubscriber)
 
 ## Power BI Report on Top 100 UK Youtubers
 
-<div>
- <img src="{{"https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg" | prepend: site.baseurl | prepend: site.url}}" alt="Top_UK_youtubers"/>
-<div/>
-
-
 ![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg)
 
----
 
 # Validation
 
@@ -259,6 +260,7 @@ RETURN(ViewsPerSubscriber)
 Here we view the difference in subscribers metrics between Excel and SQL.
 
 The [SQL codes](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/sql/validation%20cheques.sql) used to generate these values are;
+
 ```sql
 DECLARE @conversionRate FLOAT = 0.02;		--- conversion rate at 2%
 DECLARE @productCost MONEY = 5.0;		--- production cost at $5
@@ -294,7 +296,6 @@ ORDER BY
 
 ![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/TotalSubAnalysis.png)
 
----
 
 ## Conclusion
 
