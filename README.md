@@ -36,7 +36,7 @@ Ken, a marketer from leading U.K company, wants to lead a successful marketing c
 
 ## Data Source
 
-The data on top 100 U.K Youtubers contrywise is available on [Kaggle](https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise). Since the data is in a different language, you can download the Python-translated dataset [here]().
+The data on top 100 U.K Youtubers contrywise is available on [Kaggle](https://www.kaggle.com/datasets/bhavyadhingra00020/top-100-social-media-influencers-2024-countrywise). Since the data is in a different language, you can download the Python-translated dataset that gets the total subscribers, total videos and total views [here](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/datasets/youtube_data_from_python.csv).
 
 
 ## Tools
