@@ -9,7 +9,7 @@
 - [SQL Data Analysis](#sql-data-analysis)
 - [Power BI Report](#power-bi-report)
 - [Visualization](#visualization)
-- [Total Subscribers Analysis](#total-subscribers-analysis)
+- [Validation](#validation)
 - [Conclusion](#conclusion)
 - [Recommendations](#recommendations)
 
@@ -209,8 +209,47 @@ RETURN(ViewsPerSubscriber)
 ## Power BI Report on Top 100 UK Youtubers
 ![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg)
 
+
+
+# Validation
 ## Total Subscribers Analysis
+
 Here we view the difference in subscribers metrics between Excel and SQL.
+The [SQL codes](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/sql/validation%20cheques.sql) used to generate these values are;
+```sql
+DECLARE @conversionRate FLOAT = 0.02;		--- conversion rate at 2%
+DECLARE @productCost MONEY = 5.0;		--- production cost at $5
+DECLARE @campaignCost MONEY = 50000.0;	        --- campaign cost at $50,000
+
+
+---2.
+WITH channelData AS (
+ SELECT
+		channel_name,
+		total_views,
+		total_videos,
+		ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
+
+	FROM 
+		youtube_db.dbo.view_uk_youtubers_2024
+)
+
+SELECT
+		channel_name,
+		rounded_avg_views_per_video,
+		(rounded_avg_views_per_video * @conversionRate) AS potential_units_sold_per_video,
+		(rounded_avg_views_per_video * @conversionRate * @productCost) AS potential_revenue_per_video,
+		(rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCost AS net_profit
+
+	 FROM channelData
+
+WHERE
+	channel_name IN ('NoCopyrightSounds', 'DanTDM', 'Dan Rhodes')
+
+ORDER BY
+	net_profit DESC
+```
+
 ![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/TotalSubAnalysis.png)
 
 ## Conclusion
@@ -218,10 +257,10 @@ From the above analysis it is evident that ```Dan Rhodes``` exhibits the highest
 
 ## Recommendations
 1. ```Dan Rhodes``` appears to be the best youtube channel for the campaign because the channel has a higher engagement rate and it guarantees a higher return on investment compared to the other channels
-2. The top 3 channels to form collaborations with are NoCopyrightSounds, DanTDM and Dan Rhodes based on this analysis, because they attract the most engagement on their channels consistently.
-3. Mister Max is the best YouTuber to collaborate with if we're interested in maximizing reach, but collaborating with DanTDM and Dan Rhodes may be better long-term options considering the fact that they both have large subscriber bases and are averaging significantly high number of views.
+2. The top 3 channels to form collaborations with are ```NoCopyrightSounds```, ```DanTDM``` and ```Dan Rhodes``` based on this analysis, because they attract the most engagement on their channels consistently.
+3. ```Mister Max``` is the best YouTuber to collaborate with if we're interested in maximizing reach, but collaborating with ```DanTDM``` and ```Dan Rhodes``` may be better long-term options considering the fact that they both have large subscriber bases and are averaging significantly high number of views.
 
 ## Potential ROI
-- Setting up a collaboration deal with Dan Rhodes would make the client a net profit of $1,065,000 per video
-- If we go with a product placement campaign with DanTDM, this could generate the client approximately $484,000 per video.
-- NoCopyrightSounds could profit the client $642,000 per video too (which is worth considering)
+- Setting up a collaboration deal with ```Dan Rhodes``` would make the client a net profit of $1,065,000 per video
+- If we go with a product placement campaign with ```DanTDM```, this could generate the client approximately $484,000 per video.
+- ```NoCopyrightSounds``` could profit the client $642,000 per video.
