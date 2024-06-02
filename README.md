@@ -17,7 +17,7 @@
 
 ## Overview
 
-In this project, I’m studying the top 100 UK YouTubers to assist a marketer in optimizing campaign costs. I collect data using Excel, perform data cleaning and manipulation in SQL, and then transfer the cleaned dataset to Power BI for report generation. By comparing subscriber metrics between SQL and Excel, I’ll recommend high-return YouTubers for the campaign. The goal is to guide marketers in allocating resources effectively based on potential returns. 
+In this project, I’m studying the top 100 UK YouTubers to assist a marketer in optimizing campaign costs. I explore the readily available data on Top 100 UK YouTube channels using Excel, perform data cleaning and manipulation in SQL, and then transfer the cleaned dataset to Power BI for report generation. By comparing subscriber metrics between SQL and Excel, I’ll recommend high-return YouTubers for the campaign. The goal is to guide marketers in allocating resources effectively based on potential returns. 
 
 
 ## Objectives
