@@ -44,10 +44,9 @@ The data on top 100 U.K Youtubers contrywise is available on [Kaggle](https://ww
 2. [SQL](https://aka.ms/ssmsfullsetup) - For data manipulation and cleaning
 3. [Power BI](https://aka.ms/pbidesktopstore) - For creating dashboards
 
-
+---
 
 ## SQL Data Analysis
-
 ## Data Cleaning
 
 Data cleaning steps;
@@ -75,7 +74,7 @@ Expand on the created database, and you'll see the imported dataset. Right click
 The dataset should appear as shown below.
 
 ![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/loaded_db_table.png)
-
+---
 
 Now, let's carry on with the data cleaning;
 1. Removing unnecessary columns/select needed columns only
@@ -122,6 +121,7 @@ The output should show this.
 
 ![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/loaded_view_cleaned.png)
 
+---
 
 ## Data Quality Checks
 
@@ -170,6 +170,7 @@ HAVING
 	COUNT(*) > 1
 ```
 
+---
 
 # Power BI Report
 
@@ -242,7 +243,7 @@ RETURN(ViewsPerSubscriber)
 
 ![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg)
 
-
+---
 
 # Validation
 
@@ -288,6 +289,7 @@ ORDER BY
 
 ![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/TotalSubAnalysis.png)
 
+---
 
 ## Conclusion
 
