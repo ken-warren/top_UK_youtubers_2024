@@ -244,7 +244,7 @@ RETURN(ViewsPerSubscriber)
 ## Power BI Report on Top 100 UK Youtubers
 
 <div>
- <img src="{{"../assets/images/Top_UK_youtubers.jpg" | prepend: site.baseurl | prepend: site.url}}" alt="Top_UK_youtubers"/>
+ <img src="{{"https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg" | prepend: site.baseurl | prepend: site.url}}" alt="Top_UK_youtubers"/>
 <div/>
 
 
