@@ -6,7 +6,7 @@
 - [Statement of Problem](#statement-of-problem)
 - [Data Source](#data-source)
 - [Tools](#Tools)
-- 
+- [Visualization](#visualisation)
 
 ## Overview
 
@@ -36,4 +36,6 @@ CREATE DATABASE (your_database_name)
 USE (your_database_name);
 ```
 
+## Visualization
+![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg)
 
