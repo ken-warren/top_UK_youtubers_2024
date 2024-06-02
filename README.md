@@ -1,5 +1,7 @@
 # Analysis of Top 100 UK Youtubers
 
+![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/about.png)
+
 ## Table of Contents
 
 - [Overview](#overview)
