@@ -245,7 +245,7 @@ RETURN(ViewsPerSubscriber)
 
 <img src="{{"https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg" | prepend: site.baseurl | prepend: site.url}}" alt="Top_UK_youtubers"/>
 
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.JPG)
+![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg)
 
 ---
 
