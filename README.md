@@ -156,7 +156,9 @@ FROM
 WHERE 
 	TABLE_NAME = 'view_uk_youtubers_2024'
 ```
+
 3. Checking for any duplicates
+
 ```sql
 SELECT
 	channel_name, 
@@ -241,9 +243,9 @@ RETURN(ViewsPerSubscriber)
 
 ## Power BI Report on Top 100 UK Youtubers
 
-<img src="{{"https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg" | prepend: https://github.com/ken-warren.baseurl | prepend: https://github.com/ken-warren.url}}" alt="Top_UK_youtubers"/>
+<img src="{{"https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg" | prepend: site.baseurl | prepend: site.url}}" alt="Top_UK_youtubers"/>
 
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg)
+![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.JPG)
 
 ---
 
@@ -259,8 +261,6 @@ DECLARE @conversionRate FLOAT = 0.02;		--- conversion rate at 2%
 DECLARE @productCost MONEY = 5.0;		--- production cost at $5
 DECLARE @campaignCost MONEY = 50000.0;	        --- campaign cost at $50,000
 
-
----2.
 WITH channelData AS (
  SELECT
 		channel_name,
