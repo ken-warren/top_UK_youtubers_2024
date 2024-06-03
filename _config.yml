@@ -1,4 +1,5 @@
 title: Kennedy Kyalo
+email: kennedykyalo168@gmail.com
 logo: assets/images/about.png
 show_downloads: True
 remote_theme: pages-themes/minimal@v0.2.0
@@ -10,3 +11,5 @@ markdown: kramdown
 url: "https://ken-warren.github.io/"
 baseurl: "top_UK_youtubers_2024/"
 gem "github-pages", group: :jekyll_plugins
+
+github_username: ken-warren
