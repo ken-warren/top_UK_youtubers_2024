@@ -252,9 +252,9 @@ RETURN(ViewsPerSubscriber)
 ![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg)
 
 
-# Validation
+## Validation
 
-## Total Subscribers Analysis
+### Total Subscribers Analysis
 
 Here we view the difference in subscribers metrics between Excel and SQL.
 
@@ -264,30 +264,24 @@ The [SQL codes](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/as
 DECLARE @conversionRate FLOAT = 0.02;		--- conversion rate at 2%
 DECLARE @productCost MONEY = 5.0;		--- production cost at $5
 DECLARE @campaignCost MONEY = 50000.0;	        --- campaign cost at $50,000
-
 WITH channelData AS (
  SELECT
 		channel_name,
 		total_views,
 		total_videos,
 		ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
-
 	FROM 
 		youtube_db.dbo.view_uk_youtubers_2024
 )
-
 SELECT
 		channel_name,
 		rounded_avg_views_per_video,
 		(rounded_avg_views_per_video * @conversionRate) AS potential_units_sold_per_video,
 		(rounded_avg_views_per_video * @conversionRate * @productCost) AS potential_revenue_per_video,
 		(rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCost AS net_profit
-
 	 FROM channelData
-
 WHERE
 	channel_name IN ('NoCopyrightSounds', 'DanTDM', 'Dan Rhodes')
-
 ORDER BY
 	net_profit DESC
 ```
