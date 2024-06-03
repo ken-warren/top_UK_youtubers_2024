@@ -285,10 +285,9 @@ WHERE
 ORDER BY
 	net_profit DESC
 ```
-
-
+---
 ![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/TotalSubAnalysis.png)
-
+___
 
 ## Conclusion
 
