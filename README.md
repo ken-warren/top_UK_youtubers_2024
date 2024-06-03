@@ -81,6 +81,7 @@ The dataset should appear as shown below.
 Now, let's carry on with the data cleaning;
 
 1. Removing unnecessary columns/select needed columns only
+[//]: # ({% raw %})
 ```sql
 SELECT 
 	NOMBRE,
@@ -114,6 +115,7 @@ SELECT
 FROM
 	top_uk_youtubers_2024
 ```
+[//]: # ({% endraw %})
 
 
 Expand the view tab under the existing database and you'll see the created view. Right click on it and select top 1000 rows as shown below.
