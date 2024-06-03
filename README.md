@@ -81,7 +81,6 @@ The dataset should appear as shown below.
 Now, let's carry on with the data cleaning;
 
 1. Removing unnecessary columns/select needed columns only
-[//]: # ({% raw %})
 ```sql
 SELECT 
 	NOMBRE,
@@ -102,6 +101,8 @@ FROM
 
 3. Rename the column names and create a new view
 ```sql
+[//]: # ({% raw %})
+
 CREATE VIEW view_uk_youtubers_2024 AS
 
 SELECT
