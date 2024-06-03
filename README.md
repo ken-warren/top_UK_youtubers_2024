@@ -1,7 +1,7 @@
 # Analysis of Top 100 UK Youtubers
-![monthly_data](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/cf1d4f82-fd4c-4040-a0e8-6af1ae844c73)
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg)
 
+![Top_UK_youtubers](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/4b27a4cb-c069-47e0-8a3b-9bf2c7f293ac)
+---
 ## Table of Contents
 
 - [Overview](#overview)
@@ -65,17 +65,18 @@ USE (your_database_name);
 ```
 Go ahead and import Flat file of the downloaded dataset in your created database as shown below.
 
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/import_dataset.png)
+![import_dataset](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/fb6a5fb7-5b29-40c1-b1e3-d95fd2afb6e6)
 
 
 Expand on the created database, and you'll see the imported dataset. Right click on it and select top 1000 rows to view the dataset.
 
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Load_data.png)
+![Load_data](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/b2f1ed76-61c9-421a-9e59-4a1af32c0d5a)
 
 
 The dataset should appear as shown below.
 
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/loaded_db_table.png)
+![loaded_db_table](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/24fba6cb-75dc-457e-868d-7250469e72c9)
+
 ---
 
 Now, let's carry on with the data cleaning;
@@ -118,12 +119,11 @@ FROM
 
 Expand the view tab under the existing database and you'll see the created view. Right click on it and select top 1000 rows as shown below.
 
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/view_cleaned.png)
-
+![view_cleaned](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/bd06933b-5df7-4607-a26e-be21859e83e9)
 
 The output should show this.
 
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/loaded_view_cleaned.png)
+![loaded_view_cleaned](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/dd8f0e65-4aed-48ef-9f68-67e08a08e5de)
 
 
 ## Data Quality Checks
@@ -182,17 +182,17 @@ Load the cleaned dataset from the SQL Server into Power BI using the following s
 
 1. Open blank report. From the **Home** tab, select **Get data**, then **SQL Server**.
 
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/import_SQL_server.png)
+![import_SQL_server](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/ab32fe89-3a2c-47b3-9ff7-c30eb33fe9a3)
 
 
 2. Type in your Server name, database name and select **OK**.
 
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Server_name.png)
+![Server_name](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/a0ea1acc-9d4f-459f-9a9d-7fdd8efe1842)
 
 
 3. Select and load the cleaned dataset.
 
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/load_powerbi.png)
+![load_powerbi](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/c3cd7141-03a4-4bac-9d19-6a407818e745)
 
 
 The DAX formulae used are;
@@ -249,7 +249,7 @@ RETURN(ViewsPerSubscriber)
 
 ## Power BI Report on Top 100 UK Youtubers
 
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/Top_UK_youtubers.jpg)
+![Top_UK_youtubers](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/6dc99b77-dd4d-4dd6-b376-8f8d7ec6bbb8)
 
 
 ## Validation
@@ -286,7 +286,8 @@ ORDER BY
 	net_profit DESC
 ```
 ---
-![image](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/images/TotalSubAnalysis.png)
+![TotalSubAnalysis](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/fd5d394c-675e-4165-a6e1-ff6472a9d1f1)
+
 ___
 
 ## Conclusion
