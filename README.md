@@ -42,7 +42,7 @@ The data on top 100 U.K Youtubers contrywise is available on [Kaggle](https://ww
 
 
 ## Tools
-1. [Excel](https://www.microsoft.com/en-us/microsoft-365/excel) - For exploring and viewin the dataset.
+1. [Excel](https://www.microsoft.com/en-us/microsoft-365/excel) - For exploring and viewing the dataset.
 2. [SQL](https://aka.ms/ssmsfullsetup) - For data manipulation and cleaning
 3. [Power BI](https://aka.ms/pbidesktopstore) - For creating dashboards
 
