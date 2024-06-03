@@ -80,7 +80,8 @@ The dataset should appear as shown below.
 
 Now, let's carry on with the data cleaning;
 
-1. Removing unnecessary columns/select needed columns only
+### 1. Remove unnecessary columns/select needed columns only
+
 ```sql
 SELECT 
 	NOMBRE,
@@ -91,7 +92,8 @@ FROM
   top_uk_youtubers_2024
 ```
 
-2. Extract youtube channel names from 1st column
+### 2. Extract youtube channel names from 1st column
+
 ```sql
 SELECT
   CHARINDEX ('@', NOMBRE), NOMBRE
@@ -99,24 +101,19 @@ FROM
   top_uk_youtubers_2024
 ```
 
-3. Rename the column names and create a new view
+### 3. Rename the column names and create a new view
+
 ```sql
-[//]: # ({% raw %})
-
 CREATE VIEW view_uk_youtubers_2024 AS
-
 SELECT
-
-	CAST(SUBSTRING(NOMBRE, 1, CHARINDEX ('@', NOMBRE) -1) AS VARCHAR(100)) AS
-    channel_name,
+ CAST(SUBSTRING(NOMBRE, 1, CHARINDEX ('@', NOMBRE) -1) AS VARCHAR(100)) AS
+   channel_name,
 		total_subscribers,
 		total_views,
 		total_videos
-
 FROM
 	top_uk_youtubers_2024
 ```
-[//]: # ({% endraw %})
 
 
 Expand the view tab under the existing database and you'll see the created view. Right click on it and select top 1000 rows as shown below.
@@ -136,15 +133,13 @@ This will include;
 - Assessing the data types
 - Checking for any duplicates
 
-1. Row and column counts check
+### 1. Row and column counts check
 
 ```sql
 SELECT
 	COUNT(*) as no_of_rows 
-
 FROM 
 	view_uk_youtubers_2024
-
 SELECT
 	COUNT(*) as column_count
 FROM 
@@ -153,7 +148,7 @@ WHERE
 	TABLE_NAME = 'view_uk_youtubers_2024'
 ```
 
-2. Assessing the Data Type
+### 2. Assessing the Data Type
 
 ```sql
 SELECT
@@ -165,7 +160,7 @@ WHERE
 	TABLE_NAME = 'view_uk_youtubers_2024'
 ```
 
-3. Checking for any duplicates
+### 3. Checking for any duplicates
 
 ```sql
 SELECT
@@ -173,7 +168,6 @@ SELECT
 		COUNT(*) as duplicate_counts
 FROM 
 	view_uk_youtubers_2024
-
 GROUP BY
 	channel_name
 HAVING 
@@ -182,7 +176,7 @@ HAVING
 
 
 
-# Power BI Report
+## Power BI Report
 
 Load the cleaned dataset from the SQL Server into Power BI using the following steps;
 
@@ -203,51 +197,51 @@ Load the cleaned dataset from the SQL Server into Power BI using the following s
 
 The DAX formulae used are;
 
-1. Total subscribers
+### 1. Total subscribers
+
 ```dax
 Total Subscribers (M) = 
 VAR sumOfTotalSubscribers = SUM(view_uk_youtubers_2024[total_subscribers])
 VAR TotalSubscribers = DIVIDE(sumOfTotalSubscribers, 1000000)
-
 RETURN(TotalSubscribers)
 ```
 
-2. Total videos
+### 2. Total videos
+
 ```dax
 Total Videos = 
 VAR TotalVideos = SUM(view_uk_youtubers_2024[total_videos])
-
 RETURN(TotalVideos)
 ```
 
-3. Total views
+### 3. Total views
+
 ```dax
 Total Views (B) = 
 VAR billion = 1000000000
 VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
 VAR TotalViews = DIVIDE(sumOfTotalViews,billion)
-
 RETURN(TotalViews)
 ```
 
-4. Average views per video
+### 4. Average views per video
+
 ```dax
 Avg Views per Video (M) = 
 VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
 VAR sumOfTotalVideos = SUM(view_uk_youtubers_2024[total_videos])
 VAR avgOfViewsPerVideo = DIVIDE(sumOfTotalViews, sumOfTotalVideos, BLANK())
 VAR finalAvgOfViewsPerVideo = DIVIDE(avgOfViewsPerVideo, 1000000, BLANK())
-
 RETURN(finalAvgOfViewsPerVideo)
 ```
 
-5. Views per subscribers
+### 5. Views per subscribers
+
 ```dax
 Views per Subscriber = 
 VAR sumOfTotaViews = SUM(view_uk_youtubers_2024[total_views])
 VAR sumOfTotalSubscribers = SUM(view_uk_youtubers_2024[total_subscribers]) 
 VAR ViewsPerSubscriber = DIVIDE(sumOfTotaViews, sumOfTotalSubscribers, BLANK())
-
 RETURN(ViewsPerSubscriber)
 ```
 
