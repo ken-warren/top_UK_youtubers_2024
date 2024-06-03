@@ -12,6 +12,7 @@
 - [SQL Data Analysis](#sql-data-analysis)
 - [Power BI Report](#power-bi-report)
 - [Visualization](#visualization)
+- [Findings](#findings)
 - [Validation](#validation)
 - [Conclusion](#conclusion)
 - [Recommendations](#recommendations)
@@ -250,6 +251,10 @@ RETURN(ViewsPerSubscriber)
 ## Power BI Report on Top 100 UK Youtubers
 
 ![Top_UK_youtubers](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/6dc99b77-dd4d-4dd6-b376-8f8d7ec6bbb8)
+
+You can access the interactive Power BI report [here](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/powerBI/Top_UK_youtubers.pbix)
+
+## Findings
 
 
 ## Validation
