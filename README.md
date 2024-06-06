@@ -176,18 +176,18 @@ HAVING
 ```
 The expected results are highlighted in the tables below.
 
-| Variable | count |
-|----------|-------|
-|no_of_rows| 100 |
-|column_count| 4 |
+| Variable   | count |
+|------------|-------|
+|no_of_rows  | 100   |
+|column_count|   4   |
 |duplicate_counts|(blank) *meaning no duplicates|
 
-| Variable | data type|
-|----------|----------|
-|channel_name|VARCHAR|
-|total_subscribers|INT|
-|total_videos|INT|
-|total_views|BIGINT|
+| Variable   |data type|
+|------------|---------|
+|channel_name| VARCHAR |
+|total_subscribers|INT |
+|total_videos|     INT |
+|total_views |  BIGINT |
 
 
 ## Power BI Report
@@ -375,10 +375,13 @@ WHERE
 ORDER BY
 	net_profit DESC
 ```
----
+
+The Excel worksheet below shows the findings on:
+- Potential Returns
+- Net Profit
+
 ![TotalSubAnalysis](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/fd5d394c-675e-4165-a6e1-ff6472a9d1f1)
 
-___
 
 ## Conclusion
 
