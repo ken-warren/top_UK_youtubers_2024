@@ -174,7 +174,13 @@ GROUP BY
 HAVING 
 	COUNT(*) > 1
 ```
+The expected results are highlighted in the table below.
 
+| Variable | count |
+|----------|-------|
+|no_of_rows| 0 |
+|no_of_columns| 0 |
+|duplicate| (blank)|
 
 
 ## Power BI Report
