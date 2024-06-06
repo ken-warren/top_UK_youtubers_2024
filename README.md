@@ -174,13 +174,20 @@ GROUP BY
 HAVING 
 	COUNT(*) > 1
 ```
-The expected results are highlighted in the table below.
+The expected results are highlighted in the tables below.
 
 | Variable | count |
 |----------|-------|
 |no_of_rows| 100 |
 |column_count| 4 |
-|duplicate_count|(blank) *meaning no duplicate s|
+|duplicate_counts|(blank) *meaning no duplicates|
+
+| Variable | data type|
+|----------|----------|
+|channel_name|VARCHAR|
+|total_subscribers|INT|
+|total_videos|INT|
+|total_views|BIGINT|
 
 
 ## Power BI Report
