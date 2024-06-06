@@ -376,9 +376,12 @@ ORDER BY
 	net_profit DESC
 ```
 
-The Excel worksheet below shows the findings on:
-- Potential Returns
-- Net Profit
+The Excel worksheet below shows the subscribers comparison metrics between SQL and Excel for the top 3 YouTube channels and the findings on:
+- Average views per video
+- Potential product sales
+- Potential revenue
+- Potential Net Profit
+
 
 ![TotalSubAnalysis](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/fd5d394c-675e-4165-a6e1-ff6472a9d1f1)
 
