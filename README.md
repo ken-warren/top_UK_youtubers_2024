@@ -178,9 +178,9 @@ The expected results are highlighted in the table below.
 
 | Variable | count |
 |----------|-------|
-|no_of_rows| 0 |
-|no_of_columns| 0 |
-|duplicate| (blank)|
+|no_of_rows| 100 |
+|column_count| 4 |
+|duplicate_count|(blank) *meaning no duplicate s|
 
 
 ## Power BI Report
