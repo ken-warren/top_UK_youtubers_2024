@@ -335,11 +335,10 @@ You can access the interactive Power BI report [here](https://github.com/ken-war
 
 For the next phase (Validation),the variables channel_name,total_videos and total_videos will be used in Total Subscribers Analysis to assess the ROI. The following scenario will be used;
 
-|||
 |-------|-------|
-|campaigns budget|50,000|
-|cost per product|5|
-||0.02|
+|campaigns budget|$ 50,000|
+|cost per product|$ 5|
+|conversion rate|0.02|
 
 ## Validation
 
