@@ -1,21 +1,20 @@
-# Analysis of Top 100 UK Youtubers
+# Profit Behind the Views: Strategic ROI Assessment of UK YouTube Influencers 
 
 [Article](https://ken-warren.github.io/top_UK_youtubers_2024/)
-
-![top_uk_youtubers_2024](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/9c77a33a-9aa1-479e-b2d7-60a5dcef3287)
 
 ---
 
 ## Table of Contents
 
 - [Overview](#overview)
-- [Objectives](#objectives)
 - [Statement of Problem](#statement-of-problem)
+- [Objectives](#objectives)
+- [Scope of the Study](#scope-of-the-study)
+- [Limitations and Gaps](limitations-and-gaps)
 - [Data Source](#data-source)
 - [Tools](#Tools)
+- [Methodology](#methodology)
 - [SQL Data Analysis](#sql-data-analysis)
-- [Power BI Report](#power-bi-report)
-- [Visualization](#visualization)
 - [Findings](#findings)
 - [Validation](#validation)
 - [Conclusion](#conclusion)
@@ -24,21 +23,47 @@
 
 ## Overview
 
-In this project, I’m studying the top 100 UK YouTubers to assist a marketer in optimizing campaign costs. I explore the readily available data on Top 100 UK YouTube channels using Excel, perform data cleaning and manipulation in SQL, and then transfer the cleaned dataset to Power BI for report generation. By comparing subscriber metrics between SQL and Excel, I’ll recommend high-return YouTubers for the campaign. The goal is to guide marketers in allocating resources effectively based on potential returns. 
+This report presents a comparative analysis of the potential return on investment (ROI) for a product-based influencer marketing campaign targeting Top 100 UK-based YouTube creators. Using SQL for modeling and Excel for cross-validation, the study calculates the financial impact of collaborating with three prominent YouTubers: Dan Rhodes, NoCopyrightSounds, and DanTDM.
 
-
-## Objectives
-
-1. To explore data on the top 100 UK YouTubers using Excel and gain insights into their performance.
-2. To clean the dataset by handling missing values, duplicates, and perform necessary transformations for analysis.
-3. To analyze subscriber metrics using both SQL and Excel. Compare results in terms of difference.
-4. To transfer cleaned data to Power BI and create interactive visualizations for insights.
-5. To recommend high-potential YouTubers based on engagement rates and potential returns.
-
+The findings identify Dan Rhodes as the most commercially viable partner, with a projected net profit of $1.065 million per campaign video, driven by exceptionally high average viewership and strong engagement. The report also highlights the profitability of the other two channels and provides a data-informed foundation for campaign planning and influencer selection.
+ 
 
 ## Statement of Problem
 
-Ken, a marketer from leading U.K company, wants to lead a successful marketing campaign for the company's products. The company has already approved the marketing budget, so Ken needs to channel the budget towards a successful campaign. Ken faces the challenges of overpricing from third party providers and inconsistent information from the internet. To help Ken lead a successful campaign, we will analyze data on top 100 Youtubers by views, subsbcribers and video uploads. This will help Ken overcome his challenges and make a data-driven decisions on which youtubers to collaborate with for his marketing campaign to be successful.
+In influencer marketing, allocating resources to the wrong creator can lead to poor engagement, low conversions, and a negative ROI. With YouTube offering a diverse pool of high-profile content creators, the key challenge is identifying which influencer delivers the greatest commercial return based on audience engagement, conversion potential, and cost-effectiveness.
+
+This research addresses the problem of optimizing influencer selection by quantifying and comparing the financial viability of partnering with top UK-based YouTube channels, using data-driven metrics.
+ 
+
+## Objectives
+
+The goal of this study is not merely to model influencer metrics but to generate outputs that directly answer the research problem. By calculating and comparing average views, projected conversions, revenue potential, and campaign profitability across selected influencers, the report delivers:
+- Evidence-based estimates of sales impact and financial gain for each creator
+- A comparative framework for prioritizing high-ROI influencer partnerships
+- Validation of SQL-modeled data through Excel to ensure reliability and transparency
+
+These outputs inform a rational, performance-driven influencer strategy, optimizing both reach and revenue.
+
+
+## Scope of the Study
+
+This analysis is confined to a campaign simulation involving three high-performing UK YouTube channels (Dan Rhodes, NoCopyrightSounds, and DanTDM) with the goal of estimating the financial impact of influencer collaborations under standardized assumptions. The scope includes:
+- **Conversion Rate:** 2% of total views
+- **Product Cost:** $5 per unit
+- **Fixed Campaign Cost:** $50,000 per influencer per video
+- **Data Tools:** SQL for simulation and Excel for cross-validation
+- **Key Metrics Evaluated:** Average views per video, estimated product conversions, revenue projections, and net profit
+
+
+## Limitations and Gaps
+While the analysis offers quantitative clarity, it does not account for several important contextual variables, including:
+- Audience demographics (e.g., age, location, language)
+- Content-type alignment (e.g., creator niche vs. product relevance)
+- Brand sentiment or reputation risk
+- Engagement quality (e.g., comments, likes, shares vs. views alone)
+- Platform algorithm changes or volatility
+
+Furthermore, the analysis is time-bound to the most recent available data snapshot from the youtube_db.dbo.view_uk_youtubers_2024 dataset. This reflects aggregated performance as of early 2024 and does not account for seasonal trends, recent subscriber surges, or campaign timing (e.g., Q4 holiday periods or trending content cycles).
 
 
 ## Data Source
@@ -49,135 +74,63 @@ The data on top 100 U.K Youtubers contrywise is available on [Kaggle](https://ww
 ## Tools
 1. [Excel](https://www.microsoft.com/en-us/microsoft-365/excel) - For exploring and viewing the dataset.
 2. [SQL](https://aka.ms/ssmsfullsetup) - For data manipulation and cleaning
-3. [Power BI](https://aka.ms/pbidesktopstore) - For creating dashboards
+3. [Power BI](https://aka.ms/pbidesktopstore) - For vusualizing the top 100 UK Youtubers
 
 ---
+
+## Methodology
+
+## 1. SQL Modeling
+The SQL query used to derive the core financial metrics is publicly available [here](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/sql). Key features of the query include:
+
+```sql
+Copy
+Edit
+DECLARE @conversionRate FLOAT = 0.02;
+DECLARE @productCost MONEY = 5.0;
+DECLARE @campaignCost MONEY = 50000.0;
+
+WITH channelData AS (
+  SELECT 
+    channel_name,
+    total_views,
+    total_videos,
+    ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
+  FROM youtube_db.dbo.view_uk_youtubers_2024
+)
+SELECT 
+  channel_name,
+  rounded_avg_views_per_video,
+  (rounded_avg_views_per_video * @conversionRate) AS potential_units_sold_per_video,
+  (rounded_avg_views_per_video * @conversionRate * @productCost) AS potential_revenue_per_video,
+  (rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCost AS net_profit
+FROM channelData
+WHERE 
+  channel_name IN ('NoCopyrightSounds', 'DanTDM', 'Dan Rhodes')
+ORDER BY net_profit DESC;
+```
+
+This logic estimates the sales volume, revenue, and net profit by multiplying average views by the assumed conversion rate and product cost, then subtracting the campaign expense.
+
+## 2. Excel Validation
+A parallel analysis was conducted in Excel using the TotalSubAnalysis worksheet. Metrics from SQL and Excel were reconciled to ensure internal consistency and accuracy.
 
 ## SQL Data Analysis
 ## Data Cleaning
 
 Data cleaning steps;
 1. Removing unnecessary columns/select needed columns only
-2. Extract youtube channel names from 1st column
-3. Rename the column names
-
-First, create a new database for your excel file. You can open a new query and use the command 
-```sql
-CREATE DATABASE (your_database_name)
-
---- use created database:
-USE (your_database_name);
-```
-Go ahead and import Flat file of the downloaded dataset in your created database as shown below.
-
-![import_dataset](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/fb6a5fb7-5b29-40c1-b1e3-d95fd2afb6e6)
-
-
-Expand on the created database, and you'll see the imported dataset. Right click on it and select top 1000 rows to view the dataset.
-
-![Load_data](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/b2f1ed76-61c9-421a-9e59-4a1af32c0d5a)
-
-
-The dataset should appear as shown below.
-
-![loaded_db_table](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/24fba6cb-75dc-457e-868d-7250469e72c9)
-
----
-
-Now, let's carry on with the data cleaning;
-
-### 1. Remove unnecessary columns/select needed columns only
-
-```sql
-SELECT 
-	NOMBRE,
-	total_subscribers,
-	total_views,
-	total_videos
-FROM
-  top_uk_youtubers_2024
-```
-
-### 2. Extract youtube channel names from 1st column
-
-```sql
-SELECT
-  CHARINDEX ('@', NOMBRE), NOMBRE
-FROM
-  top_uk_youtubers_2024
-```
-
-### 3. Rename the column names and create a new view
-
-```sql
-CREATE VIEW view_uk_youtubers_2024 AS
-SELECT
- CAST(SUBSTRING(NOMBRE, 1, CHARINDEX ('@', NOMBRE) -1) AS VARCHAR(100)) AS
-   channel_name,
-		total_subscribers,
-		total_views,
-		total_videos
-FROM
-	top_uk_youtubers_2024
-```
-
-
-Expand the view tab under the existing database and you'll see the created view. Right click on it and select top 1000 rows as shown below.
-
-![view_cleaned](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/bd06933b-5df7-4607-a26e-be21859e83e9)
-
-The output should show this.
-
-![loaded_view_cleaned](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/dd8f0e65-4aed-48ef-9f68-67e08a08e5de)
+2. Extracting of youtube channel names from 1st column
+3. Renaming of the column names
 
 
 ## Data Quality Checks
 
-This will include;
+This includes;
 - Checking row and column counts
 - Assessing the data types
 - Checking for any duplicates
 
-### 1. Row and column counts check
-
-```sql
-SELECT
-	COUNT(*) as no_of_rows 
-FROM 
-	view_uk_youtubers_2024
-SELECT
-	COUNT(*) as column_count
-FROM 
-	INFORMATION_SCHEMA.COLUMNS
-WHERE 
-	TABLE_NAME = 'view_uk_youtubers_2024'
-```
-
-### 2. Assessing the Data Type
-
-```sql
-SELECT
-	COLUMN_NAME,
-	DATA_TYPE
-FROM 
-	INFORMATION_SCHEMA.COLUMNS
-WHERE 
-	TABLE_NAME = 'view_uk_youtubers_2024'
-```
-
-### 3. Checking for any duplicates
-
-```sql
-SELECT
-	channel_name, 
-		COUNT(*) as duplicate_counts
-FROM 
-	view_uk_youtubers_2024
-GROUP BY
-	channel_name
-HAVING 
-	COUNT(*) > 1
-```
 The expected results are highlighted in the tables below.
 
 | Variable   | count |
@@ -193,83 +146,6 @@ The expected results are highlighted in the tables below.
 |total_videos|     INT |
 |total_views |  BIGINT |
 
-
-## Power BI Report
-
-Load the cleaned dataset from the SQL Server into Power BI using the following steps;
-
-1. Open blank report. From the **Home** tab, select **Get data**, then **SQL Server**.
-
-![import_SQL_server](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/ab32fe89-3a2c-47b3-9ff7-c30eb33fe9a3)
-
-
-2. Type in your Server name, database name and select **OK**.
-
-![Server_name](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/a0ea1acc-9d4f-459f-9a9d-7fdd8efe1842)
-
-
-3. Select and load the cleaned dataset.
-
-![load_powerbi](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/c3cd7141-03a4-4bac-9d19-6a407818e745)
-
-
-The DAX formulae used are;
-
-### 1. Total subscribers
-
-```dax
-Total Subscribers (M) = 
-VAR sumOfTotalSubscribers = SUM(view_uk_youtubers_2024[total_subscribers])
-VAR TotalSubscribers = DIVIDE(sumOfTotalSubscribers, 1000000)
-RETURN(TotalSubscribers)
-```
-
-### 2. Total videos
-
-```dax
-Total Videos = 
-VAR TotalVideos = SUM(view_uk_youtubers_2024[total_videos])
-RETURN(TotalVideos)
-```
-
-### 3. Total views
-
-```dax
-Total Views (B) = 
-VAR billion = 1000000000
-VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
-VAR TotalViews = DIVIDE(sumOfTotalViews,billion)
-RETURN(TotalViews)
-```
-
-### 4. Average views per video
-
-```dax
-Avg Views per Video (M) = 
-VAR sumOfTotalViews = SUM(view_uk_youtubers_2024[total_views])
-VAR sumOfTotalVideos = SUM(view_uk_youtubers_2024[total_videos])
-VAR avgOfViewsPerVideo = DIVIDE(sumOfTotalViews, sumOfTotalVideos, BLANK())
-VAR finalAvgOfViewsPerVideo = DIVIDE(avgOfViewsPerVideo, 1000000, BLANK())
-RETURN(finalAvgOfViewsPerVideo)
-```
-
-### 5. Views per subscribers
-
-```dax
-Views per Subscriber = 
-VAR sumOfTotaViews = SUM(view_uk_youtubers_2024[total_views])
-VAR sumOfTotalSubscribers = SUM(view_uk_youtubers_2024[total_subscribers]) 
-VAR ViewsPerSubscriber = DIVIDE(sumOfTotaViews, sumOfTotalSubscribers, BLANK())
-RETURN(ViewsPerSubscriber)
-```
-
-## Visualization
-
-## Power BI Report on Top 100 UK Youtubers
-
-![Top_UK_youtubers](https://github.com/ken-warren/top_UK_youtubers_2024/assets/134076996/6dc99b77-dd4d-4dd6-b376-8f8d7ec6bbb8)
-
-You can access the interactive Power BI report [here](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/powerBI/Top_UK_youtubers_2024.pbix)
 
 ## Findings
 
@@ -337,7 +213,7 @@ You can access the interactive Power BI report [here](https://github.com/ken-war
 | 3    | Dua Lipa        | 104,954.95                  |
 
 
-For the next phase (**Validation**),the variables channel_name, total_videos and total_views will be used in Total Subscribers Analysis to assess the ROI. The following scenarios will be exemplified;
+For the next phase (**Validation**),the variables channel_name, total_videos and total_views were used in Total Subscribers Analysis to assess the ROI. The following scenarios were exemplified;
 
 |Scenario|value|
 |---|---|
@@ -350,35 +226,7 @@ For the next phase (**Validation**),the variables channel_name, total_videos and
 
 ### Total Subscribers Analysis
 
-Here we view the difference in subscribers metrics between Excel and SQL.
-
-The [SQL codes](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/sql/validation%20cheques.sql) used to generate these values are;
-
-```sql
-DECLARE @conversionRate FLOAT = 0.02;		--- conversion rate at 2%
-DECLARE @productCost MONEY = 5.0;		--- production cost at $5
-DECLARE @campaignCost MONEY = 50000.0;	        --- campaign cost at $50,000
-WITH channelData AS (
- SELECT
-		channel_name,
-		total_views,
-		total_videos,
-		ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
-	FROM 
-		youtube_db.dbo.view_uk_youtubers_2024
-)
-SELECT
-		channel_name,
-		rounded_avg_views_per_video,
-		(rounded_avg_views_per_video * @conversionRate) AS potential_units_sold_per_video,
-		(rounded_avg_views_per_video * @conversionRate * @productCost) AS potential_revenue_per_video,
-		(rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCost AS net_profit
-	 FROM channelData
-WHERE
-	channel_name IN ('NoCopyrightSounds', 'DanTDM', 'Dan Rhodes')
-ORDER BY
-	net_profit DESC
-```
+Here, the difference in subscribers metrics between Excel and SQL was assessed.
 
 The Excel worksheet below shows the subscribers comparison metrics between SQL and Excel for the top 3 YouTube channels and the findings on:
 - Average views per video
