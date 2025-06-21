@@ -84,8 +84,6 @@ The data on top 100 U.K Youtubers contrywise is available on [Kaggle](https://ww
 The SQL query used to derive the core financial metrics is publicly available [here](https://github.com/ken-warren/top_UK_youtubers_2024/blob/main/assets/sql). Key features of the query include:
 
 ```sql
-Copy
-Edit
 DECLARE @conversionRate FLOAT = 0.02;
 DECLARE @productCost MONEY = 5.0;
 DECLARE @campaignCost MONEY = 50000.0;
@@ -149,7 +147,7 @@ The expected results are highlighted in the tables below.
 
 ## Findings
 
-### 1. Who are the top 10 YouTubers with the most subscribers?
+**_1. Who are the top 10 YouTubers with the most subscribers?_**
 
 | Rank | Channel Name         | Subscribers (M) |
 |------|----------------------|-----------------|
@@ -165,7 +163,7 @@ The expected results are highlighted in the tables below.
 | 10   | Ali-A                | 18.90           |
 
 
-### 2. Which 3 channels have uploaded the most videos?
+**_2. Which 3 channels have uploaded the most videos?_**
 
 | Rank | Channel Name    | Videos Uploaded |
 |------|-----------------|-----------------|
@@ -175,8 +173,8 @@ The expected results are highlighted in the tables below.
 
 
 
-### 3. Which 3 channels have the most views?
-
+**_3. Which 3 channels have the most views?_
+**
 
 | Rank | Channel Name | Total Views (B) |
 |------|--------------|-----------------|
@@ -185,7 +183,7 @@ The expected results are highlighted in the tables below.
 | 3    | Mister Max   | 15.97           |
 
 
-### 4. Which 3 channels have the highest average views per video?
+**_4. Which 3 channels have the highest average views per video?_**
 
 | Channel Name | Averge Views per Video (M) |
 |--------------|-----------------|
@@ -194,7 +192,7 @@ The expected results are highlighted in the tables below.
 | Dua Lipa     | 5.76            |
 
 
-### 5. Which 3 channels have the highest views per subscriber ratio?
+**_5. Which 3 channels have the highest views per subscriber ratio?_**
 
 | Rank | Channel Name       | Views per Subscriber        |
 |------|-----------------   |---------------------------- |
@@ -204,7 +202,7 @@ The expected results are highlighted in the tables below.
 
 
 
-### 6. Which 3 channels have the highest subscriber engagement rate per video uploaded?
+**_6. Which 3 channels have the highest subscriber engagement rate per video uploaded?_**
 
 | Rank | Channel Name    | Subscriber Engagement Rate  |
 |------|-----------------|---------------------------- |
